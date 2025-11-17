@@ -29,6 +29,10 @@ table.input-form td { padding: 8px; border: 1px solid #CCCCCC; }
 .required { color: red; font-weight: bold; }
 .submit-button { font-weight: bold; padding: 8px 15px; background-color: #DDDDDD; border: 2px outset #CCCCCC; cursor: pointer; font-size: 13px; }
 .submit-button:active { border-style: inset; }
+/* 点滅する "New!" のためのCSS (当時はGIFアニメでしたがCSSで再現) */
+@keyframes blinker {
+    50% { opacity: 0; }
+}
 </style>
 </head>
 
