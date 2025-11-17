@@ -6,8 +6,8 @@
 
 <style type="text/css">
 /* 当時はCSSをあまり使わないか、使っても最小限でした。
-   フォント指定や背景色も <font> タグや <body> の bgcolor 属性でやるのが主流でした。
-   ここでは「当時の雰囲気」を出すために、あえて古い書き方を併用します。
+  フォント指定や背景色も <font> タグや <body> の bgcolor 属性でやるのが主流でした。
+  ここでは「当時の雰囲気」を出すために、あえて古い書き方を併用します。
 */
 
 body {
@@ -21,8 +21,8 @@ body {
 }
 
 /* レイアウトはすべてテーブルで行います。
-   これが "width="760"" だったりするのが「あの頃」です。
-   (800x600 の画面解像度を想定)
+  これが "width="760"" だったりするのが「あの頃」です。
+  (800x600 の画面解像度を想定)
 */
 table.main-layout {
     width: 760px; /* 黄金の固定幅 */
@@ -171,7 +171,7 @@ table.topics td {
     padding: 5px 10px;
     background-color: #DDDDDD;
     border: 2px outset #CCCCCC;
-    cursor: pointer;
+    cursor: pointer; /* 当時は cursor: hand; だったかも... */
 }
 .submit-button:active {
     border-style: inset; /* 押した時にへこむ */
@@ -196,7 +196,7 @@ table.topics td {
     <tr bgcolor="#FFFFFF">
         <td colspan="2" class="header-top">
             <span class="logo-text">RRA 琉球リゾート航空</span><br>
-            <span class="logo-subtext">"沖縄の翼、虹の架け橋"</span>
+            <span class="logo-subtext">"Best travel with RRA"</span>
         </td>
     </tr>
     
@@ -207,7 +207,7 @@ table.topics td {
                 | <b>[ <a href="./flight-info.html">運航情報</a> ]</b>
                 | <b>[ <a href="#">時刻表</a> ]</b>
                 | <b>[ <a href="./rra_fare_info.html">運賃案内</a> ]</b>
-                | <b>[ <a href="./rra_about_us.html">会社概要</a> ]</b>
+                | <b>[ <a href="#">会社概要</a> ]</b>
                 | <b>[ <a href="#">English</a> ]</b>
             </font>
         </td>
@@ -303,56 +303,49 @@ table.topics td {
             
             <div class="form-box">
                 <h4 style="margin-top:0; text-align:center;">▼ スピード空席照会 ▼</h4>
-                
-                <form action="rra_search_result.html" method="GET">
-                <table align="center" border="0" cellpadding="3">
-                    <tr>
-                        <td align="right"><font size="2">出発地:</font></td>
-                        <td>
-                            <select name="from" id="from">
-                                <option value="東京(羽田)">東京(羽田)</option>
-                                <option value="大阪(関空)">大阪(関空)</option>
-                                <option value="新千歳">新千歳</option>
-                                <option value="那覇">那覇</option>
-                                <option value="石垣">石垣</option>
-                                <option value="宮古">宮古</option>
-                            </select>
-                        </td>
-                        <td align="right"><font size="2">到着地:</font></td>
-                        <td>
-                            <select name="to" id="to">
-                                <option value="那覇">那覇</option>
-                                <option value="石垣">石垣</option>
-                                <option value="宮古">宮古</option>
-                                <option value="東京(羽田)">東京(羽田)</option>
-                                <option value="大阪(関空)">大阪(関空)</option>
-                                <option value="新千歳">新千歳</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right"><font size="2">搭乗日:</font></td>
-                        <td colspan="3">
-                            <select name="month">
-                                <option value="11">11月</Moption>
-                                <option value="12">12月</option>
-                            </select>
-                            <select name="day">
-                                <option value="18">18日</option>
-                                <option value="19">19日</option>
-                                <option value="20">20日</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="4" align="center">
-                            <br>
-                            <input type="submit" value=" 検索する " class="submit-button">
-                        </td>
-                    </tr>
-                </table>
-                </form>
+<form action="rra_search_result.html" method="GET">  <table align="center" border="0" cellpadding="3">
+    <tr>
+        <td align="right"><font size="2">出発地:</font></td>
+        <td>
+<select name="to" id="">
+    <option value="那覇">那覇</option>
+    <option value="石垣">石垣</option>
+    <option value="宮古">宮古</option>
+    <option value="東京(羽田)">東京(羽田)</option> <option value="大阪(関空)">大阪(関空)</option> <option value="新千歳">新千歳</option> </select>
+
+</select>
+        </td>
+        <td align="right"><font size="2">到着地:</font></td>
+        <td>
+<select name="to" id="to">
+    <option value="那覇">那覇</option>
+    <option value="石垣">石垣</option>
+    <option value="宮古">宮古</option>
+    <option value="東京(羽田)">東京(羽田)</option> <option value="大阪(関空)">大阪(関空)</option> <option value="新千歳">新千歳</option> </select>
+        </td>
+    </tr>
+    <tr>
+        <td align="right"><font size="2">搭乗日:</font></td>
+        <td colspan="3">
+            <select name="month">  <option value="11">11月</option>
+                <option value="12">12月</option>
+            </select>
+            <select name="day">  <option value="18">18日</option>
+                <option value="19">19日</option>
+                <option value="20">20日</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4" align="center">
+            <br>
+            <input type="submit" value=" 検索する " class="submit-button">
+        </td>
+    </tr>
+</table>
+</form>
             </div>
+            
             <br>
             <div class="placeholder-img" style="width: 530px;">
                 [画像バナー: 輝く海とハイビスカス。]<br>
@@ -377,11 +370,14 @@ table.topics td {
 <script type="text/javascript">
 (function() {
     // 懐かしの「キリ番カウンター」のシミュレーション
+    // (本当はCGIやSSIで読み込むものでした)
     try {
+        // 10234をベースに、リロードするたび少し増えるように見せかけます
         var baseCount = 10234;
         var randomAdd = Math.floor(Math.random() * 50); // 0〜49
         var totalCount = baseCount + randomAdd;
         
+        // 桁区切り (toLocaleStringは使わずに自力でやるのが「それっぽい」)
         var countStr = String(totalCount);
         var formattedCount = "";
         var i = countStr.length;
@@ -391,8 +387,10 @@ table.topics td {
         }
         formattedCount = countStr.substr(0, i) + formattedCount;
 
+        // HTMLに書き込む
         document.getElementById('visitorCounter').innerHTML = formattedCount;
     } catch (e) {
+        // エラー処理 (当時はあまりしなかったかも...)
         document.getElementById('visitorCounter').innerHTML = "10,234";
     }
 })();
