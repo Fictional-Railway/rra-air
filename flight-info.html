@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>琉球リゾート航空 | 運航情報</title>
+
+<style type="text/css">
+/* 前回のスタイル (rra.html) と共通です。
+  実際には外部CSS (.cssファイル) にするのが後々（といっても98年頃）の主流ですが、
+  当時はこうして各ページにコピペしているサイトも多かったです。
+*/
+
+body {
+    font-family: "MS Pゴシック", "MS PGothic", "ヒラギノ角ゴ Pro W3", sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    background-color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+}
+
+table.main-layout {
+    width: 760px;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    background-color: #FFFFFF;
+}
+
+/* --- ヘッダー --- */
+.header-top { padding: 10px; border-bottom: 3px solid #000080; }
+.logo-text { font-size: 28px; font-weight: bold; color: #000080; font-family: "Arial Black", sans-serif; }
+.logo-subtext { font-size: 12px; font-weight: bold; color: #CC0000; }
+
+/* --- グローバルナビ --- */
+.global-nav { background-color: #EEEEFF; border-bottom: 1px solid #999999; padding: 5px; text-align: center; font-size: 11px; }
+.global-nav a { color: #0000CC; text-decoration: none; }
+.global-nav a:hover { color: #FF0000; text-decoration: underline; }
+
+/* --- 左ナビゲーション --- */
+.left-nav { width: 180px; padding: 10px; background-color: #F0F0F0; border-right: 1px dashed #999999; }
+.left-nav h4 { font-size: 13px; font-weight: bold; color: #FFFFFF; background-color: #0055AA; padding: 3px; margin-top: 10px; margin-bottom: 5px; }
+.left-nav ul { margin: 0 0 10px 15px; padding: 0; list-style-type: square; }
+.left-nav li { margin-bottom: 5px; }
+
+@keyframes blinker { 50% { opacity: 0; } }
+.blinking-new { animation: blinker 1.0s linear infinite; color: red; font-weight: bold; font-size: 10px; }
+
+/* --- メインコンテンツ --- */
+.main-content { padding: 15px; }
+.main-content h3 { font-size: 16px; color: #000080; border-bottom: 2px solid #000080; }
+
+/* --- フッター --- */
+.footer { border-top: 1px solid #999999; padding: 10px; text-align: center; font-size: 10px; color: #666666; }
+
+
+/*
+  ▼▼▼ このページ (運航情報) 専用のスタイル ▼▼▼
+*/
+.last-update {
+    font-size: 14px;
+    font-weight: bold;
+    color: #CC0000;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #CC0000;
+    background-color: #FFFFEE;
+}
+
+/* 運航情報テーブル本体 */
+table.flight-info {
+    width: 100%;
+    border-collapse: collapse; /* 当時はあまり使われなかったかも？ */
+    border: 2px solid #0055AA; /* 枠線は濃い青 */
+    font-size: 12px;
+}
+
+/* テーブルのヘッダー行 (TH) */
+table.flight-info th {
+    background-color: #E0E0FF; /* 薄い青紫 */
+    padding: 6px;
+    border: 1px solid #999999;
+    font-weight: bold;
+}
+
+/* テーブルのデータ行 (TD) */
+table.flight-info td {
+    padding: 6px;
+    border: 1px solid #CCCCCC;
+    text-align: center; /* 基本は中央揃え */
+}
+
+/*
+  ステータスごとの色分け
+  (当時はCSSクラスではなく、<td> に bgcolor="#CCFFCC" と直接書いていた)
+  ここでは「当時の発想」をCSSで再現します。
+*/
+.status-ontime {
+    background-color: #CCFFCC; /* 平常 (薄い緑) */
+    font-weight: bold;
+}
+.status-delay {
+    background-color: #FFFFCC; /* 遅延 (薄い黄) */
+}
+.status-cancel {
+    background-color: #FFDDDD; /* 欠航 (薄い赤) */
+}
+
+</style>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#800080">
+
+<table class="main-layout" align="center" bgcolor="#999999" cellspacing="1" cellpadding="0">
+    
+    <tr bgcolor="#FFFFFF">
+        <td colspan="2" class="header-top">
+            <span class="logo-text">RRA 琉球リゾート航空</span><br>
+            <span class="logo-subtext">"Best travel with RRA"</span>
+        </td>
+    </tr>
+    
+    <tr bgcolor="#EEEEFF">
+        <td colspan="2" class="global-nav">
+            <font size="2">
+                <b>[ <a href="index.html">ホーム</a> ]</b>
+                | <b>[ <a href="./flight-info.html">運航情報</a> ]</b>
+                | <b>[ <a href="#">時刻表</a> ]</b>
+                | <b>[ <a href="#">運賃案内</a> ]</b>
+                | <b>[ <a href="#">会社概要</a> ]</b>
+                | <b>[ <a href="#">English</a> ]</b>
+            </font>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="left-nav" valign="top">
+            
+            <h4>■ 空席照会・ご予約</h4>
+            <ul>
+                <li><a href="#">国内線予約</a></li>
+                <li><a href="#">予約確認・変更</a></li>
+            </ul>
+
+            <h4>■ RRAマイレージ</h4>
+            <ul>
+                <li><a href="#">ログイン</a></li>
+                <li><a href="#">新規入会</a></li>
+            </ul>
+            
+            <h4>■ ツアー情報 <span class="blinking-new">New!</span></h4>
+            <ul>
+                <li><a href="#">石垣・宮古 島旅</a></li>
+                <li><a href="#">那覇フリープラン</a></li>
+            </ul>
+
+            <h4>■ 便利な情報</h4>
+            <ul>
+                <li><a href="#">機材・シート紹介</a></li>
+                <li><a href="#">お問い合わせ</a></li>
+                <li><a href="#">サイトマップ</a></li>
+            </ul>
+
+            <br>
+            <p align="center">
+                <a href="http://www.w3.org/html/logo/">
+                <img src="https://www.w3.org/Icons/valid-html401" 
+                     alt="Valid HTML 4.01!" height="31" width="88" border="0">
+                </a>
+            </p>
+            <p align="center">
+                <img src="https://www.w3.org/Icons/get-netscape" 
+                     alt="Netscape Now!" height="31" width="88" border="0">
+            </p>
+
+        </td>
+
+        <td class="main-content" valign="top">
+            
+            <h3><font color="#000080">本日の運航情報</font></h3>
+            
+            <p>RRA 琉球リゾート航空をご利用いただき、誠にありがとうございます。</p>
+            
+            <div class="last-update">
+                全便、平常通りの運航を予定しております。<br>
+                (最終更新: 11月17日 16:00 現在)
+            </div>
+            
+            <br>
+            
+            <table class="flight-info" cellpadding="5" cellspacing="0">
+                <tr align="center">
+                    <th>便名</th>
+                    <th>出発地</th>
+                    <th>出発予定</th>
+                    <th>到着地</th>
+                    <th>到着予定</th>
+                    <th>状況</th>
+                    <th>備考</th>
+                </tr>
+
+                <tr>
+                    <td>RRA101</td>
+                    <td>那覇</td>
+                    <td>09:00</td>
+                    <td>宮古</td>
+                    <td>09:50</td>
+                    <td class="status-ontime">平常</td>
+                    <td>&nbsp;</td> </tr>
+
+                <tr>
+                    <td>RRA201</td>
+                    <td>那覇</td>
+                    <td>10:15</td>
+                    <td>石垣</td>
+                    <td>11:10</td>
+                    <td class="status-ontime">平常</td>
+                    <td>&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td>RRA103</td>
+                    <td>那覇</td>
+                    <td>13:00</td>
+                    <td>宮古</td>
+                    <td>13:50</td>
+                    <td class="status-delay">
+                        <font color="blue"><b>遅延 13:30発</b></font>
+                    </td>
+                    <td>機材繰りのため</td>
+                </tr>
+                
+                <tr>
+                    <td>RRA301</td>
+                    <td>石垣</td>
+                    <td>14:00</td>
+                    <td>与那国</td>
+                    <td>14:35</td>
+                    <td class="status-cancel">
+                        <font color="red"><b>欠航</b></font>
+                    </td>
+                    <td>悪天候（強風）</td>
+                </tr>
+
+                <tr>
+                    <td>RRA204</td>
+                    <td>石垣</td>
+                    <td>17:00</td>
+                    <td>那覇</td>
+                    <td>17:55</td>
+                    <td class="status-ontime">平常</td>
+                    <td>&nbsp;</td>
+                </tr>
+
+            </table>
+            
+            <br>
+            <hr size="1" color="#CCCCCC">
+            
+            <font size="2">
+            <b>【ご案内】</b><br>
+            ・運航状況は、天候や機材繰りなどにより予告なく変更される場合がございます。<br>
+            ・最新の情報は、空港の電光掲示板、または予約センターにてご確認ください。<br>
+            ・「平常」は、定刻通りの運航を予定している便です。<br>
+            ・<font color="red">「欠航」</font>または<font color="blue">「遅延」</font>が決定した便の航空券の取り扱いについては、<a href="#">こちら</a>をご覧ください。
+            </font>
+
+        </td>
+    </tr>
+    
+    <tr bgcolor="#FFFFFF">
+        <td colspan="2" class="footer">
+            <font size="1">
+            (C) 1999-2001 Ryukyu Resort Air (RRA) All Rights Reserved.<br>
+            * このホームページは Internet Explorer 5.5 / Netscape 6 での閲覧を推奨します。
+            </font>
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>
