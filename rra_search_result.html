@@ -107,7 +107,6 @@ table.search-results tr.row-alt { background-color: #F7F7F7; }
             </p>
 
             <form action="rra_passenger_info.html" method="GET">
-            
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td class="legend-box">
@@ -277,7 +276,7 @@ window.onload = function() {
     if (criteriaDisplay && depCode && arrCode && month && day) {
         var htmlContent = '<font size="2"><b>【ご希望の検索条件】</b></font><br>' +
                           '<span>' + depName + ' (' + depCode + ') → ' + arrName + ' (' + arrCode + ')</span><br>' +
-                          '<span>搭乗日: 2020520114.35年 ' + monthName + ' ' + day + '日</span>';
+                          '<span>搭乗日: 2025年 ' + monthName + ' ' + day + '日</span>';
         criteriaDisplay.innerHTML = htmlContent;
 
         // ★★★ ここで動的テーブル生成関数を実行 ★★★
@@ -286,7 +285,20 @@ window.onload = function() {
     } else if (criteriaDisplay) {
         criteriaDisplay.innerHTML = '<font color="red"><b>検索パラメータが正しくありません。トップページからやり直してください。</b></font>';
     }
-};
+// ★★★ 予約フォームに日付と路線情報を隠しフィールドで引き継ぐ処理 ★★★
+    
+    // ページ上のフォーム要素を取得します
+    var bookingForm = document.querySelector('form'); 
+    
+    if (bookingForm) {
+        // 隠しフィールドを作成して、現在のURLパラメータを次のページに渡す
+        bookingForm.innerHTML += '<input type="hidden" name="dep" value="' + depCode + '">';
+        bookingForm.innerHTML += '<input type="hidden" name="arr" value="' + arrCode + '">';
+        bookingForm.innerHTML += '<input type="hidden" name="month" value="' + month + '">';
+        bookingForm.innerHTML += '<input type="hidden" name="day" value="' + day + '">';
+    }
+
+}; // window.onloadの終わり
 
 // ------------------------------------------
 // ▼▼▼ 絞り込み機能 (時刻フィルタリング) (修正) ▼▼▼

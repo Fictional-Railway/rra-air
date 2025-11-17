@@ -84,11 +84,6 @@ table.input-form td { padding: 8px; border: 1px solid #CCCCCC; }
             </font>
 
             <form action="rra_confirmation.html" method="GET">
-                <input type="hidden" name="month" value="（JSで動的に取得した値）">
-<input type="hidden" name="day" value="（JSで動的に取得した値）">
-            <input type="hidden" name="selected_flight" value="RRA203"> 
-<input type="hidden" name="month" value="11"> 
-<input type="hidden" name="day" value="18">
 <table width="100%" border="0" cellpadding="3" cellspacing="0" bgcolor="#FFFFCC" id="flight-summary">
     <tr>
         <td width="120"><b>ご予約便:</b></td>
@@ -230,64 +225,6 @@ function getParameterByName(name) {
 var FLIGHT_MAP = {
     'RRA201': 'RRA201便 (那覇 08:30 発 → 石垣 09:25 着)',
     'RRA203': 'RRA203便 (那覇 10:15 発 → 石垣 11:10 着)',
-    'RRA205': 'RRA205便 (那覇 13:00 発 → 石垣 13:55 着) - 満席',
-    'RRA207': 'RRA207便 (那覇 16:00 発 → 石垣 16:55 着)',
-    'RRA101': 'RRA101便 (那覇 09:00 発 → 宮古 09:50 着)',
-    'RRA103': 'RRA103便 (那覇 13:00 発 → 宮古 13:50 着)',
-    'RRA105': 'RRA105便 (那覇 16:45 発 → 宮古 17:35 着)',
-    'RRA206': 'RRA206便 (石垣 14:20 発 → 那覇 15:15 着)',
-    'MMY102': 'RRA102便 (宮古 11:00 発 → 那覇 11:50 着)'
-    // 他の便も必要に応じてここに追加
-};
-
-
-window.onload = function() {
-    // A. フライト情報の反映 (便名)
-    var selectedFlight = getParameterByName('selected_flight');
-    var flightDisplay = document.getElementById('flight-summary-no');
-
-    if (flightDisplay && selectedFlight) {
-        var flightInfo = FLIGHT_MAP[selectedFlight] || (selectedFlight + '便 (情報なし)');
-        flightDisplay.innerHTML = flightInfo;
-    } else if (flightDisplay) {
-        flightDisplay.innerHTML = '<font color="red">便情報が見つかりません</font>';
-    }
-
-    // B. 搭乗日の反映 ★修正後のコード★
-    var month = getParameterByName('month');
-    var day = getParameterByName('day');
-    var dateDisplay = document.getElementById('flight-summary-date');
-    var year = '2001'; // 年号は固定
-
-    if (dateDisplay && month && day) {
-        // パラメータが取得できた場合
-        dateDisplay.innerHTML = year + '年 ' + month + '月 ' + day + '日 (日)';
-    } else if (dateDisplay) {
-        // パラメータが取得できなかった場合
-        dateDisplay.innerHTML = '<font color="red">日付情報が引き継がれていません。</font>';
-    }
-};
-</script>
-<script type="text/javascript">
-// ------------------------------------------
-// ▼▼▼ このページに必要な動的処理 ▼▼▼
-// ------------------------------------------
-
-// 当時のJSでURLのパラメータを取得するために使われた簡易関数
-function getParameterByName(name) {
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var url = window.location.href;
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
-
-// 予約情報の簡易マッピング (rra_search_result.htmlと連携)
-var FLIGHT_MAP = {
-    'RRA201': 'RRA201便 (那覇 08:30 発 → 石垣 09:25 着)',
-    'RRA203': 'RRA203便 (那覇 10:15 発 → 石垣 11:10 着)',
     'RRA205': 'RRA205便 (那覇 13:00 発 → 石垣 13:55 着)',
     'RRA207': 'RRA207便 (那覇 16:00 発 → 石垣 16:55 着)',
     'RRA101': 'RRA101便 (那覇 09:00 発 → 宮古 09:50 着)',
@@ -298,31 +235,47 @@ var FLIGHT_MAP = {
     'RRA104': 'RRA104便 (宮古 14:40 発 → 那覇 15:30 着)'
 };
 
-
 window.onload = function() {
-    // A. フライト情報の反映 (便名)
+    // URLから必要な全パラメータを取得
     var selectedFlight = getParameterByName('selected_flight');
-    var flightDisplay = document.getElementById('flight-summary-no');
+    var month = getParameterByName('month');
+    var day = getParameterByName('day');
+    var depCode = getParameterByName('dep'); // rra_search_resultから引き継がれているはず
+    var arrCode = getParameterByName('arr'); // rra_search_resultから引き継がれているはず
 
+    var flightDisplay = document.getElementById('flight-summary-no');
+    var dateDisplay = document.getElementById('flight-summary-date');
+    var year = '2001'; 
+
+    // A. フライト情報の反映 (便名)
     if (flightDisplay && selectedFlight) {
         var flightInfo = FLIGHT_MAP[selectedFlight] || (selectedFlight + '便 (情報なし)');
-        flightDisplay.innerHTML = flightInfo;
+        flightDisplay.innerHTML = '<b>' + flightInfo + '</b>';
     } else if (flightDisplay) {
         flightDisplay.innerHTML = '<font color="red">便情報が見つかりません</font>';
     }
 
-    // B. 搭乗日の反映 ★ここが今回の修正点★
-    var month = getParameterByName('month');
-    var day = getParameterByName('day');
-    var dateDisplay = document.getElementById('flight-summary-date');
-
+    // B. 搭乗日の反映
     if (dateDisplay && month && day) {
         // 曜日情報はURLから取得できないため、「日」と仮定します
-        dateDisplay.innerHTML = '2025年 ' + month + '月 ' + day + '日 (日)';
+        dateDisplay.innerHTML = year + '年 ' + month + '月 ' + day + '日 (日)';
     } else if (dateDisplay) {
-        dateDisplay.innerHTML = '2025年 --月 --日 (日)';
+        dateDisplay.innerHTML = '<font color="red">日付情報が引き継がれていません。</font>';
     }
 
+    // C. フォームに引き継ぎ用の隠しフィールドを追加
+    var bookingForm = document.querySelector('form');
+    if (bookingForm && selectedFlight && month && day) {
+        // 選択したフライト、日付、路線情報を次のページへ確実に渡す
+        bookingForm.innerHTML += '<input type="hidden" name="selected_flight" value="' + selectedFlight + '">';
+        bookingForm.innerHTML += '<input type="hidden" name="month" value="' + month + '">';
+        bookingForm.innerHTML += '<input type="hidden" name="day" value="' + day + '">';
+        // 路線情報もあれば渡す (rra_search_resultで正しく設定されていればOK)
+        if (depCode && arrCode) {
+            bookingForm.innerHTML += '<input type="hidden" name="dep" value="' + depCode + '">';
+            bookingForm.innerHTML += '<input type="hidden" name="arr" value="' + arrCode + '">';
+        }
+    }
 };
 </script>
 </body>
