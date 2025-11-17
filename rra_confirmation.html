@@ -45,6 +45,30 @@ table.confirm-data td { padding: 8px; border: 1px solid #CCCCCC; background-colo
     cursor: pointer; 
     font-size: 13px;
 }
+/* --- 確認画面専用スタイル (お客様の指定クラス含む) --- */
+table.confirm-data { width: 100%; border-collapse: collapse; border: 1px solid #0055AA; margin-bottom: 15px; }
+table.confirm-data caption { background-color: #0055AA; color: #FFFFFF; font-size: 14px; font-weight: bold; padding: 5px; }
+table.confirm-data th { background-color: #E0E0FF; padding: 8px; border: 1px solid #999999; text-align: left; width: 150px; }
+table.confirm-data td { padding: 8px; border: 1px solid #CCCCCC; background-color: #FFFFFF; }
+.total-price { font-size: 16px; color: #CC0000; font-weight: bold; }
+
+/* 元のsubmit-button (汎用グレーボタン) をここでは使用します */
+.submit-button { /* submit-buttonはedit-button/confirm-buttonの代わりとして機能 */
+    font-weight: bold; 
+    padding: 8px 15px; 
+    background-color: #DDDDDD;
+    border: 2px outset #999999; 
+    cursor: pointer; 
+    font-size: 13px;
+}
+.submit-button:active { border-style: inset; }
+
+/* 確定ボタンを黄色で強調するための追加スタイル (submit-buttonを継承) */
+.confirm-highlight {
+    background-color: #FFD700 !important; /* 黄色に上書き */
+    border: 3px outset #CC9900 !important; /* 確定ボタンらしい強調 */
+    font-size: 14px !important;
+}
 </style>
 </head>
 
@@ -55,7 +79,7 @@ table.confirm-data td { padding: 8px; border: 1px solid #CCCCCC; background-colo
     <tr bgcolor="#FFFFFF">
         <td colspan="2" class="header-top">
             <span class="logo-text">RRA 琉球リゾート航空</span><br>
-            <span class="logo-subtext">"沖縄の翼、虹の架け橋"</span>
+            <span class="logo-subtext">"Best travel with RRA"</span>
         </td>
     </tr>
     
@@ -99,7 +123,7 @@ table.confirm-data td { padding: 8px; border: 1px solid #CCCCCC; background-colo
             <hr size="1">
             </font>
             
-            <form action="javascript:alert('ご予約を確定いたしました。\n予約番号は J01234567 です。\nありがとうございました！');" method="POST">
+<form action="rra_complete.html" method="POST" id="complete-form">
 
             
             <table class="confirm-data" cellpadding="5" cellspacing="0">
@@ -110,7 +134,7 @@ table.confirm-data td { padding: 8px; border: 1px solid #CCCCCC; background-colo
                 </tr>
                 <tr>
                     <th>搭乗日</th>
-                    <td id="flight-summary-date">2025年 11月 18日 (日)</td> 
+                    <td id="flight-summary-date">2001年 11月 18日 (日)</td> 
                 </tr>
                 <tr>
                     <th>運賃</th>
@@ -161,18 +185,15 @@ table.confirm-data td { padding: 8px; border: 1px solid #CCCCCC; background-colo
             </table>
 
             <br>
-            
+    
             <p align="center">
-                <input type="button" value=" 修正する " class="edit-button" onclick="window.history.back();">
+                <input type="button" value=" 修正する " class="submit-button" onclick="window.history.back();">
                 &nbsp;&nbsp;&nbsp;
-                <input type="submit" value=" 予約を確定する " class="confirm-button">
+                <input type="submit" value=" 予約を確定する " class="submit-button confirm-highlight">
             </p>
 
-            </form>
-
-        </td>
+            </form> </td>
     </tr>
-    
     <tr bgcolor="#FFFFFF">
         <td colspan="2" class="footer">
             <font size="1">
@@ -289,6 +310,14 @@ window.onload = function() {
         (expM || '--') + ' / ' + (expY || '--');
 
 };
+
+// C. 次ページへの隠しフィールド生成
+    var form = document.getElementById('complete-form');
+    // ... (中略)
+    for (var i = 0; i < params.length; i++) {
+        // ... (隠しフィールドを生成する処理)
+        form.innerHTML += '<input type="hidden" name="' + name + '" value="' + value + '">';
+    }
 </script>
 
 </body>
