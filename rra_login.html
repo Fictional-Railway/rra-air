@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>RRAマイレージ ログイン | 琉球リゾート航空</title>
+
+<style type="text/css">
+/* --- 共通スタイル --- */
+body { font-family: "MS Pゴシック", "MS PGothic", "ヒラギノ角ゴ Pro W3", sans-serif; font-size: 12px; line-height: 1.5; background-color: #FFFFFF; margin: 0; padding: 0; }
+table.main-layout { width: 760px; border: 0; border-spacing: 0; border-collapse: collapse; background-color: #FFFFFF; }
+.header-top { padding: 10px; border-bottom: 3px solid #000080; }
+.logo-text { font-size: 28px; font-weight: bold; color: #000080; font-family: "Arial Black", sans-serif; }
+.logo-subtext { font-size: 12px; font-weight: bold; color: #CC0000; }
+.global-nav { background-color: #EEEEFF; border-bottom: 1px solid #999999; padding: 5px; text-align: center; font-size: 11px; }
+.global-nav a { color: #0000CC; text-decoration: none; }
+.global-nav a:hover { color: #FF0000; text-decoration: underline; }
+.left-nav { width: 180px; padding: 10px; background-color: #F0F0F0; border-right: 1px dashed #999999; }
+.left-nav h4 { font-size: 13px; font-weight: bold; color: #FFFFFF; background-color: #0055AA; padding: 3px; margin-top: 10px; margin-bottom: 5px; }
+.left-nav ul { margin: 0 0 10px 15px; padding: 0; list-style-type: square; }
+.left-nav li { margin-bottom: 5px; }
+.main-content { padding: 15px; }
+.main-content h3 { font-size: 16px; color: #000080; border-bottom: 2px solid #000080; }
+.footer { border-top: 1px solid #999999; padding: 10px; text-align: center; font-size: 10px; color: #666666; }
+
+/* --- ログインフォーム専用スタイル --- */
+.login-box {
+    border: 3px double #0055AA;
+    background-color: #F8F8FF;
+    padding: 20px;
+    width: 450px; 
+    margin: 20px auto; 
+}
+table.login-form {
+    width: 100%;
+}
+table.login-form td.label {
+    width: 120px;
+    font-weight: bold;
+    padding-right: 10px;
+    text-align: right;
+}
+.submit-button {
+    font-weight: bold;
+    padding: 8px 15px;
+    background-color: #DDDDDD;
+    border: 2px outset #CCCCCC;
+    cursor: pointer;
+    font-size: 13px;
+}
+.submit-button:active { border-style: inset; }
+.note {
+    font-size: 11px;
+    color: #000080;
+}
+.ssl-note {
+    font-size: 11px;
+    color: #006400; 
+    text-align: center;
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#800080">
+
+<table class="main-layout" align="center" bgcolor="#999999" cellspacing="1" cellpadding="0">
+    
+    <tr bgcolor="#FFFFFF">
+        <td colspan="2" class="header-top">
+            <span class="logo-text">RRA 琉球リゾート航空</span><br>
+            <span class="logo-subtext">"沖縄の翼、虹の架け橋"</span>
+        </td>
+    </tr>
+    
+    <tr bgcolor="#EEEEFF">
+        <td colspan="2" class="global-nav">
+            <font size="2">
+                <b>[ <a href="./index.html">ホーム</a> ]</b>
+                | <b>[ <a href="./flight-info.html">運航情報</a> ]</b>
+                | <b>[ <a href="#">時刻表</a> ]</b>
+                | <b>[ <a href="./rra_fare_info.html">運賃案内</a> ]</b>
+                | <b>[ <a href="./rra_about_us.html">会社概要</a> ]</b>
+                | <b>[ <a href="#">English</a> ]</b>
+            </font>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="left-nav" valign="top">
+            <h4>■ 空席照会・ご予約</h4>
+            <ul><li><a href="./index.html">国内線予約</a></li><li><a href="#">予約確認・変更</a></li></ul>
+            <h4>■ RRAマイレージ</h4>
+            <ul><li><a href="./rra_login.html">**ログイン**</a></li><li><a href="./rra_register.html">新規会員登録</a></li><li><a href="#">マイル照会</a></li></ul>
+            <h4>■ 便利な情報</h4>
+            <ul><li><a href="#">機材・シート紹介</a></li><li><a href="#">お問い合わせ</a></li></ul>
+            <br><p align="center">
+                <a href="http://www.w3.org/html/logo/">
+                <img src="https://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01!" height="31" width="88" border="0">
+                </a>
+            </p>
+        </td>
+
+        <td class="main-content" valign="top">
+            
+            <h3><font color="#000080">RRAマイレージ ログイン</font></h3>
+            
+            <p>
+                ご登録のメールアドレス（会員ID）とパスワードを入力して、[ ログイン ] ボタンを押してください。
+            </p>
+
+            <hr size="1" color="#CCCCCC">
+
+            <div class="login-box">
+                <form action="javascript:void(0);" onsubmit="return loginAttempt();" id="login-form">
+                
+                <table class="login-form" cellpadding="5" cellspacing="0">
+                    <tr>
+                        <td class="label">メールアドレス:</td>
+                        <td>
+                            <input type="text" name="email" id="login-email" size="35" maxlength="50">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">パスワード:</td>
+                        <td>
+                            <input type="password" name="password" id="login-password" size="20" maxlength="20">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center" style="padding-top: 20px;">
+                            <input type="submit" value=" ログイン " class="submit-button" style="padding: 8px 25px; font-size: 14px;">
+                        </td>
+                    </tr>
+                </table>
+                
+                <p class="ssl-note">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Lock-a.png/120px-Lock-a.png" alt="鍵マーク" width="16" height="16" valign="middle">
+                    お客様の情報はSSL暗号化通信により保護されています。
+                </p>
+                
+                </form>
+            </div>
+            
+            <br>
+            
+            <table align="center" border="0" cellpadding="5" cellspacing="5" style="font-size: 11px;">
+                <tr>
+                    <td align="center" bgcolor="#F0F0F0" style="border: 1px solid #999999;">
+                        <b>パスワードをお忘れですか？</b><br>
+                        <a href="javascript:alert('「秘密の質問」にお答えください\n（パスワード再設定ページへ）');">→ パスワードの再設定はこちら</a>
+                    </td>
+                    <td align="center" bgcolor="#FFFFE0" style="border: 1px solid #999999;">
+                        <b>まだ会員ではありませんか？</b><br>
+                        <a href="./rra_register.html">→ 新規会員登録（無料）はこちら</a>
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+    
+    <tr bgcolor="#FFFFFF">
+        <td colspan="2" class="footer">
+            <font size="1">
+            (C) 1999-2025 Ryukyu Resort Airlines All Rights Reserved.<br>
+            * このホームページは Internet Explorer 5.5 / Netscape 6 での閲覧を推奨します。
+            </font>
+        </td>
+    </tr>
+
+</table>
+
+<script type="text/javascript">
+// ★★★ ログイン処理関数 ★★★
+function loginAttempt() {
+    var email = document.getElementById('login-email').value;
+    var password = document.getElementById('login-password').value;
+
+    // Local Storageをクリアする機能（テスト用）
+    if (email === "clear" && password === "clear") {
+        localStorage.removeItem('rra_user');
+        alert('Local Storageのユーザーデータを削除しました。');
+        return false;
+    }
+
+    // ★ 疑似的な認証：このID/PASSのみログイン成功とする ★
+    if (email === "hana@rra-mile.jp" && password === "okinawa123") {
+        
+        // ログイン成功！表示するユーザーデータを定義
+        var userData = {
+            name: "ヤマダ ハナコ",
+            memberId: "RRA12345678",
+            status: "ゴールドステータス",
+            miles: "15,300",
+            lastFlight: "2001/10/25",
+            tierPoints: "2,500"
+        };
+        
+        // データをJSON文字列としてLocal Storageに保存
+        localStorage.setItem('rra_user', JSON.stringify(userData));
+        
+        alert('ログイン成功！ようこそ、' + userData.name + '様');
+        window.location.href = "./rra_mypage.html"; // マイページへ遷移
+        
+    } else {
+        alert('ログイン情報が間違っています。\nテスト用アカウント: hana@rra-mile.jp、パスワード: okinawa123でお試しください。');
+    }
+    return false; // フォームのデフォルトの送信を防ぐ
+}
+</script>
+</body>
+</html>

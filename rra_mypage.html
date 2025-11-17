@@ -1,0 +1,282 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>マイページ | RRAマイレージプログラム</title>
+
+<style type="text/css">
+/* --- 共通スタイル --- */
+body { font-family: "MS Pゴシック", "MS PGothic", "ヒラギノ角ゴ Pro W3", sans-serif; font-size: 12px; line-height: 1.5; background-color: #FFFFFF; margin: 0; padding: 0; }
+table.main-layout { width: 760px; border: 0; border-spacing: 0; border-collapse: collapse; background-color: #FFFFFF; }
+.header-top { padding: 10px; border-bottom: 3px solid #000080; }
+.logo-text { font-size: 28px; font-weight: bold; color: #000080; font-family: "Arial Black", sans-serif; }
+.logo-subtext { font-size: 12px; font-weight: bold; color: #CC0000; }
+.global-nav { background-color: #EEEEFF; border-bottom: 1px solid #999999; padding: 5px; text-align: center; font-size: 11px; }
+.global-nav a { color: #0000CC; text-decoration: none; }
+.global-nav a:hover { color: #FF0000; text-decoration: underline; }
+.left-nav { width: 180px; padding: 10px; background-color: #F0F0F0; border-right: 1px dashed #999999; }
+.left-nav h4 { font-size: 13px; font-weight: bold; color: #FFFFFF; background-color: #0055AA; padding: 3px; margin-top: 10px; margin-bottom: 5px; }
+.left-nav ul { margin: 0 0 10px 15px; padding: 0; list-style-type: square; }
+.left-nav li { margin-bottom: 5px; }
+.main-content { padding: 15px; }
+.main-content h3 { font-size: 16px; color: #000080; border-bottom: 2px solid #000080; }
+.footer { border-top: 1px solid #999999; padding: 10px; text-align: center; font-size: 10px; color: #666666; }
+
+/* --- マイページ専用スタイル --- */
+.welcome-box {
+    border: 3px ridge #CCAA00; 
+    background-color: #FFFACD; 
+    padding: 15px;
+    margin-bottom: 15px;
+}
+.welcome-box p {
+    margin: 5px 0;
+}
+.mypage-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #CC0000;
+}
+.mileage-status {
+    border: 2px solid #CCAA00; 
+    background-color: #FFFFF0;
+    padding: 10px;
+    margin-top: 10px;
+}
+.mileage-status th, .mileage-status td {
+    padding: 5px;
+    font-size: 13px;
+}
+.mileage-status th {
+    width: 120px;
+    background-color: #EEEEDD;
+    text-align: right;
+}
+#current-miles {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FF8C00; 
+}
+#member-status {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000080;
+}
+table.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #999999;
+}
+table.history-table th {
+    background-color: #E0E0FF;
+    padding: 6px;
+    border: 1px solid #999999;
+    font-weight: bold;
+    text-align: center;
+}
+table.history-table td {
+    padding: 6px;
+    border: 1px solid #CCCCCC;
+    text-align: center;
+    font-size: 11px;
+}
+</style>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#800080">
+
+<table class="main-layout" align="center" bgcolor="#999999" cellspacing="1" cellpadding="0">
+    
+    <tr bgcolor="#FFFFFF">
+        <td colspan="2" class="header-top">
+            <span class="logo-text">RRA 琉球リゾート航空</span><br>
+            <span class="logo-subtext">"沖縄の翼、虹の架け橋"</span>
+        </td>
+    </tr>
+    
+    <tr bgcolor="#EEEEFF">
+        <td colspan="2" class="global-nav">
+            <font size="2">
+                <b>[ <a href="./index.html">ホーム</a> ]</b>
+                | <b>[ <a href="#">予約確認</a> ]</b>
+                | <b>[ <a href="#">特典航空券予約</a> ]</b>
+                | <b>[ <a href="./rra_mypage.html">**マイページ**</a> ]</b>
+                | <b>[ <a href="javascript:void(0);" onclick="logout()">ログアウト</a> ]</b>
+            </font>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="left-nav" valign="top">
+            <h4>■ マイレージメニュー</h4>
+            <ul>
+                <li><a href="#">マイル残高照会</a></li>
+                <li><a href="#">搭乗履歴確認</a></li>
+                <li><a href="#">会員情報変更</a></li>
+            </ul>
+            <h4>■ 特典交換</h4>
+            <ul>
+                <li><a href="#">特典航空券交換</a></li>
+                <li><a href="#">提携ホテルクーポン</a></li>
+            </ul>
+            <h4>■ RRAからのお知らせ</h4>
+            <ul>
+                <li><a href="#">キャンペーン情報</a></li>
+            </ul>
+            <br>
+            <div style="text-align:center; padding:10px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/JAS_MD-90.svg/300px-JAS_MD-90.svg.png" alt="RRA機材" width="100" height="45" style="border:1px solid #999;">
+                <p style="font-size:10px; margin-top:5px;">RRA機材(MD-90)</p>
+            </div>
+        </td>
+
+        <td class="main-content" valign="top">
+            
+            <h3><font color="#000080">RRAマイレージ - お客様専用ページ</font></h3>
+            
+            <div class="welcome-box">
+                <span class="mypage-title" id="welcome-message">ようこそ、お客様</span>
+                <p>最終搭乗日: <span id="last-flight-date">データなし</span></p>
+                
+                <hr size="1" color="#CCAA00">
+
+                <table class="mileage-status" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th width="120">現在のマイル残高:</th>
+                        <td>
+                            <span id="current-miles">0</span> マイル
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>会員ステータス:</th>
+                        <td>
+                            <span id="member-status">一般会員</span>
+                            <span style="font-size:11px; color:#999;">(継続まであと <span id="tier-points">0</span> ポイント)</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <h4 style="color:#0055AA;">▼ 直近の搭乗履歴</h4>
+            <table class="history-table" cellpadding="5" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th width="100">搭乗日</th>
+                        <th>搭乗区間</th>
+                        <th width="80">獲得マイル</th>
+                        <th width="60">処理状況</th>
+                    </tr>
+                </thead>
+                <tbody id="history-tbody">
+                    <tr><td colspan="4">履歴を読み込み中...</td></tr>
+                </tbody>
+            </table>
+            
+            <p align="right"><font size="2"><a href="#">→ 過去の搭乗履歴をすべて見る</a></font></p>
+
+            <h4 style="color:#0055AA;">▼ ご予約中のフライト</h4>
+            <div style="border:1px dotted #999; padding:10px; background-color:#FAFAFA; font-size:12px;">
+                <font color="blue"><b>ご予約はありません。</b></font><br>
+                <font size="2">現在予約できる国内線は <a href="./index.html">こちら</a> から検索できます。</font>
+            </div>
+            
+            <hr size="1" color="#CCCCCC">
+
+            <p align="center">
+                <input type="button" value=" マイルを特典に交換する " class="submit-button" style="padding: 10px 20px; background-color: #FFD700;">
+            </p>
+
+        </td>
+    </tr>
+    
+    <tr bgcolor="#FFFFFF">
+        <td colspan="2" class="footer">
+            <font size="1">
+            (C) 1999-2025 Ryukyu Resort Airlines All Rights Reserved.<br>
+            * このホームページは Internet Explorer 5.5 / Netscape 6 での閲覧を推奨します。
+            </font>
+        </td>
+    </tr>
+
+</table>
+
+<script type="text/javascript">
+// ------------------------------------------
+// ▼▼▼ 固定の搭乗履歴データ（今回はログイン情報と連動させない） ▼▼▼
+// ------------------------------------------
+var FLIGHT_HISTORY = [
+    { date: "2001/10/25", route: "那覇 → 東京(羽田)", miles: "+750", status: "マイル積算済" },
+    { date: "2001/09/10", route: "大阪(関空) → 那覇", miles: "+500", status: "マイル積算済" },
+    { date: "2001/08/01", route: "那覇 → 石垣", miles: "+300", status: "マイル積算済" },
+    { date: "2001/06/15", route: "石垣 → 宮古", miles: "+150", status: "マイル積算済" },
+    { date: "2001/05/20", route: "東京(羽田) → 那覇", miles: "+750", status: "マイル積算済" }
+];
+
+
+// ------------------------------------------
+// ▼▼▼ ログアウト処理 ▼▼▼
+// ------------------------------------------
+function logout() {
+    localStorage.removeItem('rra_user'); // Local Storageからデータを削除
+    alert('ログアウトしました。');
+    window.location.href = "./rra_login.html"; // ログインページへ戻る
+}
+
+
+// ------------------------------------------
+// ▼▼▼ ページロード時にデータを挿入する処理 (Local Storage連動) ▼▼▼
+// ------------------------------------------
+window.onload = function() {
+    // Local Storageからユーザーデータを読み込む
+    var storedUser = localStorage.getItem('rra_user');
+    
+    // ログイン情報がない場合のデフォルトデータ（またはログインページへ誘導）
+    var userDataToDisplay = {
+        name: "一般のお客様",
+        memberId: "ゲスト",
+        status: "一般会員",
+        miles: "0",
+        lastFlight: "N/A",
+        tierPoints: "0"
+    };
+
+    if (storedUser) {
+        try {
+            // Local Storageのデータで上書き
+            userDataToDisplay = JSON.parse(storedUser);
+        } catch (e) {
+            console.error("Failed to parse user data from Local Storage", e);
+        }
+    } else {
+        // ログインしていない場合
+        console.log("Not logged in. Displaying default data.");
+        // alert("ログインされていません。"); // 邪魔になるので今回は非表示
+    }
+
+    // 1. ウェルカムメッセージと基本データの挿入
+    document.getElementById('welcome-message').textContent = 'ようこそ、' + userDataToDisplay.name + ' 様';
+    document.getElementById('last-flight-date').textContent = userDataToDisplay.lastFlight;
+    
+    // 2. マイルステータスの挿入
+    document.getElementById('current-miles').textContent = userDataToDisplay.miles;
+    document.getElementById('member-status').textContent = userDataToDisplay.status;
+    document.getElementById('tier-points').textContent = userDataToDisplay.tierPoints;
+
+    // 3. 搭乗履歴の動的生成
+    var historyTbody = document.getElementById('history-tbody');
+    var historyHtml = '';
+
+    FLIGHT_HISTORY.forEach(function(history) {
+        historyHtml += '<tr>';
+        historyHtml += '<td>' + history.date + '</td>';
+        historyHtml += '<td style="text-align:left;">' + history.route + '</td>';
+        historyHtml += '<td><font color="red"><b>' + history.miles + '</b></font></td>';
+        historyHtml += '<td>' + history.status + '</td>';
+        historyHtml += '</tr>';
+    });
+
+    historyTbody.innerHTML = historyHtml;
+};
+</script>
+</body>
+</html>
