@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
-<title>お客様情報入力 - RRA 琉球リゾート航空</title>
+<title>お客様情報入力|琉球リゾート航空</title>
 
 <style type="text/css">
 /* --- スタイルは既存ページと共通 (省略) --- */
@@ -94,9 +94,9 @@ table.input-form td { padding: 8px; border: 1px solid #CCCCCC; }
         <td width="120"><b>ご予約便:</b></td>
         <td id="flight-summary-no">便情報を読み込み中...</td>
     </tr>
-    <tr>
+<tr>
         <td><b>搭乗日:</b></td>
-        <td id="flight-summary-date">2025年 11月 18日 (日)</td>
+        <td id="flight-summary-date">日付を読み込み中...</td>
     </tr>
 </table>
             <br>
@@ -242,14 +242,29 @@ var FLIGHT_MAP = {
 
 
 window.onload = function() {
+    // A. フライト情報の反映 (便名)
     var selectedFlight = getParameterByName('selected_flight');
     var flightDisplay = document.getElementById('flight-summary-no');
 
     if (flightDisplay && selectedFlight) {
-        var flightInfo = FLIGHT_MAP[selectedFlight] || (selectedFlight + '便 (情報が見つかりません)');
+        var flightInfo = FLIGHT_MAP[selectedFlight] || (selectedFlight + '便 (情報なし)');
         flightDisplay.innerHTML = flightInfo;
     } else if (flightDisplay) {
-        flightDisplay.innerHTML = '<font color="red">便情報が選択されていません。空席照会からやり直してください。</font>';
+        flightDisplay.innerHTML = '<font color="red">便情報が見つかりません</font>';
+    }
+
+    // B. 搭乗日の反映 ★修正後のコード★
+    var month = getParameterByName('month');
+    var day = getParameterByName('day');
+    var dateDisplay = document.getElementById('flight-summary-date');
+    var year = '2001'; // 年号は固定
+
+    if (dateDisplay && month && day) {
+        // パラメータが取得できた場合
+        dateDisplay.innerHTML = year + '年 ' + month + '月 ' + day + '日 (日)';
+    } else if (dateDisplay) {
+        // パラメータが取得できなかった場合
+        dateDisplay.innerHTML = '<font color="red">日付情報が引き継がれていません。</font>';
     }
 };
 </script>
