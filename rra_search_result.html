@@ -6,170 +6,69 @@
 
 <style type="text/css">
 /* --- 共通スタイル --- */
-body {
-    font-family: "MS Pゴシック", "MS PGothic", "ヒラギノ角ゴ Pro W3", sans-serif;
-    font-size: 12px;
-    line-height: 1.5;
-    background-color: #FFFFFF;
-    margin: 0;
-    padding: 0;
-}
-table.main-layout {
-    width: 760px;
-    border: 0;
-    border-spacing: 0;
-    border-collapse: collapse;
-    background-color: #FFFFFF;
-}
-.header-top {
-    padding: 10px;
-    border-bottom: 3px solid #000080;
-}
-.logo-text {
-    font-size: 28px;
-    font-weight: bold;
-    color: #000080;
-    font-family: "Arial Black", sans-serif;
-}
-.logo-subtext {
-    font-size: 12px;
-    font-weight: bold;
-    color: #CC0000;
-}
-.global-nav {
-    background-color: #EEEEFF;
-    border-bottom: 1px solid #999999;
-    padding: 5px;
-    text-align: center;
+body { font-family: "MS Pゴシック", "MS PGothic", "ヒラギノ角ゴ Pro W3", sans-serif; font-size: 12px; line-height: 1.5; background-color: #FFFFFF; margin: 0; padding: 0; }
+table.main-layout { width: 760px; border: 0; border-spacing: 0; border-collapse: collapse; background-color: #FFFFFF; }
+.header-top { padding: 10px; border-bottom: 3px solid #000080; }
+.logo-text { font-size: 28px; font-weight: bold; color: #000080; font-family: "Arial Black", sans-serif; }
+.logo-subtext { font-size: 12px; font-weight: bold; color: #CC0000; }
+.global-nav { background-color: #EEEEFF; border-bottom: 1px solid #999999; padding: 5px; text-align: center; font-size: 11px; }
+.global-nav a { color: #0000CC; text-decoration: none; }
+.global-nav a:hover { color: #FF0000; text-decoration: underline; }
+.left-nav { width: 180px; padding: 10px; background-color: #F0F0F0; border-right: 1px dashed #999999; }
+.left-nav h4 { font-size: 13px; font-weight: bold; color: #FFFFFF; background-color: #0055AA; padding: 3px; margin-top: 10px; margin-bottom: 5px; }
+.left-nav ul { margin: 0 0 10px 15px; padding: 0; list-style-type: square; }
+.left-nav li { margin-bottom: 5px; }
+.main-content { padding: 15px; }
+.main-content h3 { font-size: 16px; color: #000080; border-bottom: 2px solid #000080; }
+.footer { border-top: 1px solid #999999; padding: 10px; text-align: center; font-size: 10px; color: #666666; }
+
+/* --- 検索結果専用スタイル --- */
+/* 検索結果テーブル */
+table.flight-results-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    border: 1px solid #999999; 
+    margin-top: 10px; 
     font-size: 11px;
 }
-.global-nav a {
-    color: #0000CC;
-    text-decoration: none;
-}
-.global-nav a:hover {
-    color: #FF0000;
-    text-decoration: underline;
-}
-.left-nav {
-    width: 180px;
-    padding: 10px;
-    background-color: #F0F0F0;
-    border-right: 1px dashed #999999;
-}
-.left-nav h4 {
-    font-size: 13px;
-    font-weight: bold;
-    color: #FFFFFF;
-    background-color: #0055AA;
-    padding: 3px;
-    margin-top: 10px;
-    margin-bottom: 5px;
-}
-.left-nav ul {
-    margin: 0 0 10px 15px;
-    padding: 0;
-    list-style-type: square;
-}
-.left-nav li {
-    margin-bottom: 5px;
-}
-@keyframes blinker {
-    50% { opacity: 0; }
-}
-.blinking-new {
-    animation: blinker 1.0s linear infinite;
-    color: red;
-    font-weight: bold;
-    font-size: 10px;
-}
-.main-content {
-    padding: 15px;
-}
-.main-content h3 {
-    font-size: 16px;
-    color: #000080;
-    border-bottom: 2px solid #000080;
-}
-.footer {
-    border-top: 1px solid #999999;
-    padding: 10px;
-    text-align: center;
-    font-size: 10px;
-    color: #666666;
-}
-
-/* --- このページ専用のスタイル --- */
-.search-criteria {
-    border: 1px solid #0055AA;
-    background-color: #F0F0FF;
-    padding: 10px;
-    font-size: 13px;
-}
-.search-criteria span {
-    font-size: 14px;
-    font-weight: bold;
-    color: #000080;
-}
-
-table.search-results {
-    width: 100%;
-    border-collapse: collapse;
-    border: 2px solid #0055AA;
-    font-size: 12px;
-}
-table.search-results th {
-    background-color: #E0E0FF;
-    padding: 6px;
+table.flight-results-table th {
+    background-color: #E0E0FF; /* ヘッダーの背景色 */
+    padding: 6px 3px;
     border: 1px solid #999999;
     font-weight: bold;
 }
-table.search-results td {
-    padding: 6px;
+table.flight-results-table td {
+    padding: 4px;
     border: 1px solid #CCCCCC;
     text-align: center;
 }
-table.search-results tr.row-alt {
-    background-color: #F7F7F7;
-}
-
-.seat-symbol {
-    font-size: 14px;
+.route-section-header {
+    background-color:#F0F0F0;
     font-weight: bold;
-    font-family: "Arial", sans-serif;
+    color: #0055AA;
+    padding: 5px;
 }
-.seat-available { color: #0000CC; } /* ◎ */
-.seat-few { color: #FF8C00; }     /* △ */
-.seat-full { color: #CC0000; }      /* ✕ */
-
-.fare-price {
-    color: #CC0000;
+.price-box {
+    background-color: #CCFFCC; /* 価格欄を強調 */
     font-weight: bold;
-    font-size: 13px;
+    color: #0055AA;
 }
-
-.legend-box {
-    border: 1px dotted #999999;
-    background-color: #FAFAFA;
-    padding: 8px;
-    font-size: 11px;
-}
-.submit-button {
-    font-weight: bold;
-    padding: 8px 15px;
-    background-color: #DDDDDD;
-    border: 2px outset #CCCCCC;
+.reserve-button {
+    font-size: 10px;
+    padding: 2px 4px;
+    background-color: #FFCC00;
+    border: 1px outset #CC9900;
     cursor: pointer;
-    font-size: 13px;
-}
-.submit-button:active {
-    border-style: inset;
 }
 
+/* 空席状況の色 */
+.status-available { color: green; font-weight: bold; }
+.status-few { color: orange; }
+.status-full { color: red; }
 </style>
 </head>
 
-<body bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#800080">
+<body bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#800080" **onload="displayFlights();"**>
 
 <table class="main-layout" align="center" bgcolor="#999999" cellspacing="1" cellpadding="0">
     
@@ -185,7 +84,7 @@ table.search-results tr.row-alt {
             <font size="2">
                 <b>[ <a href="./index.html">ホーム</a> ]</b>
                 | <b>[ <a href="./flight-info.html">運航情報</a> ]</b>
-                | <b>[ <a href="#">時刻表</a> ]</b>
+                | <b>[ <a href="./rra_timetable.html">時刻表</a> ]</b>
                 | <b>[ <a href="./rra_fare_info.html">運賃案内</a> ]</b>
                 | <b>[ <a href="./rra_about_us.html">会社概要</a> ]</b>
                 | <b>[ <a href="#">English</a> ]</b>
@@ -196,13 +95,20 @@ table.search-results tr.row-alt {
     <tr>
         <td class="left-nav" valign="top">
             <h4>■ 空席照会・ご予約</h4>
-            <ul><li><a href="./index.html">国内線予約</a></li><li><a href="#">予約確認・変更</a></li></ul>
+            <ul>
+                <li><a href="./index.html">国内線予約</a></li>
+                <li><a href="#">予約確認・変更</a></li>
+            </ul>
             <h4>■ RRAマイレージ</h4>
-            <ul><li><a href="#">ログイン</a></li><li><a href="#">新規入会</a></li></ul>
-            <h4>■ ツアー情報 <span class="blinking-new">New!</span></h4>
-            <ul><li><a href="#">石垣・宮古 島旅</a></li><li><a href="#">那覇フリープラン</a></li></ul>
+            <ul>
+                <li><a href="./rra_login.html">ログイン</a></li>
+                <li><a href="./rra_register.html">新規会員登録</a></li>
+            </ul>
             <h4>■ 便利な情報</h4>
-            <ul><li><a href="#">機材・シート紹介</a></li><li><a href="#">お問い合わせ</a></li><li><a href="#">サイトマップ</a></li></ul>
+            <ul>
+                <li><a href="#">機材・シート紹介</a></li>
+                <li><a href="#">お問い合わせ</a></li>
+            </ul>
             <br><p align="center">
                 <a href="http://www.w3.org/html/logo/">
                 <img src="https://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01!" height="31" width="88" border="0">
@@ -212,79 +118,40 @@ table.search-results tr.row-alt {
 
         <td class="main-content" valign="top">
             
-            <h3><font color="#000080">空席照会結果</font></h3>
+            <h3><font color="#000080">空席照会結果 (往路)</font></h3>
             
-            <p>RRA 琉球リゾート航空をご利用いただき、ありがとうございます。<br>
-            ご希望の便を選択し、[ 次へ進む (お客様情報入力) ] ボタンを押してください。</p>
-
-            <div class="search-criteria" id="search-criteria-display">
-                <font size="2"><b>【ご希望の検索条件】</b></font><br>
-                <span>読み込み中...</span>
+            <div **id="search-info"** style="border: 2px solid #0055AA; background-color:#E0E0FF; padding: 8px; margin-bottom:15px;">
+                <font size="3" color="#000080"><b>検索条件: データを読み込み中...</b></font><br>
+                <font size="2">（該当する便が見つからなかった場合は、下の時刻表を確認してください。）</font>
             </div>
             
-            <br>
-            
-            <p align="left">
-                <font size="2">
-                <b>[出発時刻で絞り込む]</b>
-                | <a href="javascript:void(0);" onclick="filterFlights('08');">08時台</a>
-                | <a href="javascript:void(0);" onclick="filterFlights('10');">10時台</a>
-                | <a href="javascript:void(0);" onclick="filterFlights('13');">13時台</a>
-                | <a href="javascript:void(0);" onclick="filterFlights('16');">16時台</a>
-                | <a href="javascript:void(0);" onclick="resetFilter();">全て表示</a>
-                </font>
-            </p>
-
-            <form action="rra_passenger_info.html" method="GET" id="flight-select-form">
-            
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <table class="flight-results-table" cellpadding="0" cellspacing="0">
                 <tr>
-                    <td class="legend-box">
-                        <b>【空席状況の見方】</b>
-                        <span class="seat-symbol seat-available">◎</span>：余裕あり
-                        <span class="seat-symbol seat-few">△</span>：残りわずか
-                        <span class="seat-symbol seat-full">✕</span>：満席に近い
-                    </td>
-                    <td align="right">
-                        <font size="2">[ <a href="#">前日の空席</a> | <a href="#">翌日の空席</a> ]</font>
+                    <th width="5%">便名</th>
+                    <th width="10%">出発地</th>
+                    <th width="10%">出発時刻</th>
+                    <th width="10%">到着地</th>
+                    <th width="10%">到着時刻</th>
+                    <th width="10%">空席状況</th>
+                    <th width="12%">通常運賃</th>
+                    <th width="12%">割引運賃</th>
+                    <th width="15%">予約</th>
+                </tr>
+                <tbody **id="flight-results-body"**>
+                    <tr><td colspan="9" align="center">検索結果を読み込んでいます...</td></tr>
+                </tbody>
+                <tr>
+                    <td colspan="9" align="center" style="background-color:#FFFFE0; padding:8px;">
+                        <font size="2" color="#CC0000"><b>◎: 空席あり / △: 残りわずか / 満席: 予約不可</b></font>
                     </td>
                 </tr>
             </table>
-
-            <table class="search-results" id="flight-results-table" cellpadding="5" cellspacing="0">
-                <thead>
-                    <tr align="center">
-                        <th>選択</th>
-                        <th>便名</th>
-                        <th>出発</th>
-                        <th>到着</th>
-                        <th>運賃 (リゾート割28)</th>
-                        <th>空席</th>
-                    </tr>
-                </thead>
-                <tbody id="flight-results-tbody">
-                    <tr>
-                        <td colspan="6">フライト情報を検索中です...</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <br>
-            
-            <font size="1" color="#333333">
-                ※空席状況は、検索時点で予約可能な座席数を表示しています。<br>
-                ※「△」は残り10席以下の場合に表示されます。<br>
-                ※この画面で便を選択しても、予約は完了しません。
-            </font>
-
-            <hr size="1" color="#CCCCCC">
-
             <p align="center">
-                <input type="submit" value=" 次へ進む (お客様情報入力) " class="submit-button">
+                <input type="button" value=" 戻る " class="submit-button" onclick="window.location.href='./index.html';">
             </p>
-            
-            </form>
-            </td>
+
+
+        </td>
     </tr>
     
     <tr bgcolor="#FFFFFF">
@@ -298,194 +165,121 @@ table.search-results tr.row-alt {
 
 </table>
 
-<script type="text/javascript">
-// ------------------------------------------
-// ▼▼▼ JSによる動的表示のためのデータ・関数 ▼▼▼
-// ------------------------------------------
-
-// URLのパラメータを取得するために使われた簡易関数
-function getParameterByName(name) {
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var url = window.location.href;
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
-
-// 全6空港間の可能な限り多くの組み合わせを設定したフライト一覧データ
-var FLIGHT_LIST_ALL = [
-    // --- 1. 東京(羽田) ⇔ 那覇 ---
-    { no: 'RRA901', from: '東京(羽田)', to: '那覇', dep: '07:00', arr: '09:40', fare: '19,800', seat: 'A' },
-    { no: 'RRA905', from: '東京(羽田)', to: '那覇', dep: '11:30', arr: '14:10', fare: '18,800', seat: 'B' },
-    { no: 'RRA907', from: '東京(羽田)', to: '那覇', dep: '16:00', arr: '18:40', fare: '20,800', seat: 'C' },
-    { no: 'RRA902', from: '那覇', to: '東京(羽田)', dep: '10:30', arr: '13:10', fare: '19,800', seat: 'A' },
-    { no: 'RRA906', from: '那覇', to: '東京(羽田)', dep: '14:50', arr: '17:30', fare: '18,800', seat: 'B' },
-    { no: 'RRA908', from: '那覇', to: '東京(羽田)', dep: '19:30', arr: '22:10', fare: '20,800', seat: 'A' },
-
-    // --- 2. 大阪(関空) ⇔ 那覇 ---
-    { no: 'RRA811', from: '大阪(関空)', to: '那覇', dep: '08:30', arr: '10:45', fare: '15,800', seat: 'A' },
-    { no: 'RRA815', from: '大阪(関空)', to: '那覇', dep: '13:00', arr: '15:15', fare: '14,800', seat: 'B' },
-    { no: 'RRA812', from: '那覇', to: '大阪(関空)', dep: '11:30', arr: '13:45', fare: '15,800', seat: 'B' },
-    { no: 'RRA816', from: '那覇', to: '大阪(関空)', dep: '16:00', arr: '18:15', fare: '14,800', seat: 'C' },
-
-    // --- 3. 新千歳 ⇔ 那覇 ---
-    { no: 'RRA701', from: '新千歳', to: '那覇', dep: '09:00', arr: '12:40', fare: '28,000', seat: 'A' },
-    { no: 'RRA702', from: '那覇', to: '新千歳', dep: '13:40', arr: '17:20', fare: '27,000', seat: 'A' },
-
-    // --- 4. 那覇 ⇔ 石垣 ---
-    { no: 'RRA201', from: '那覇', to: '石垣', dep: '08:30', arr: '09:25', fare: '12,800', seat: 'A' },
-    { no: 'RRA203', from: '那覇', to: '石垣', dep: '10:15', arr: '11:10', fare: '13,800', seat: 'B' },
-    { no: 'RRA205', from: '那覇', to: '石垣', dep: '13:00', arr: '13:55', fare: '12,800', seat: 'A' },
-    { no: 'RRA206', from: '石垣', to: '那覇', dep: '14:20', arr: '15:15', fare: '12,800', seat: 'A' },
-    { no: 'RRA208', from: '石垣', to: '那覇', dep: '16:00', arr: '16:55', fare: '13,800', seat: 'B' },
-    { no: 'RRA210', from: '石垣', to: '那覇', dep: '17:30', arr: '18:25', fare: '12,800', seat: 'A' },
-
-    // --- 5. 那覇 ⇔ 宮古 ---
-    { no: 'RRA103', from: '那覇', to: '宮古', dep: '13:00', arr: '13:50', fare: '9,800', seat: 'C' },
-    { no: 'RRA105', from: '那覇', to: '宮古', dep: '15:30', arr: '16:20', fare: '10,800', seat: 'A' },
-    { no: 'RRA102', from: '宮古', to: '那覇', dep: '11:00', arr: '11:50', fare: '9,800', seat: 'B' },
-    { no: 'RRA104', from: '宮古', to: '那覇', dep: '14:40', arr: '15:30', fare: '10,800', seat: 'A' },
-
-    // --- 6. 石垣 ⇔ 宮古 ---
-    { no: 'RRA301', from: '石垣', to: '宮古', dep: '09:00', arr: '09:35', fare: '6,500', seat: 'A' },
-    { no: 'RRA302', from: '宮古', to: '石垣', dep: '10:05', arr: '10:40', fare: '6,500', seat: 'A' },
-
-    // --- 7. 東京(羽田) ⇔ 石垣 / 宮古 (直行便) ---
-    { no: 'RRA951', from: '東京(羽田)', to: '石垣', dep: '08:00', arr: '11:30', fare: '24,800', seat: 'A' },
-    { no: 'RRA952', from: '石垣', to: '東京(羽田)', dep: '17:00', arr: '20:30', fare: '24,800', seat: 'B' },
-    { no: 'RRA961', from: '東京(羽田)', to: '宮古', dep: '08:15', arr: '11:45', fare: '23,800', seat: 'B' },
-    { no: 'RRA962', from: '宮古', to: '東京(羽田)', dep: '17:15', arr: '20:45', fare: '23,800', seat: 'A' },
-
-    // --- 8. 大阪(関空) ⇔ 石垣 / 宮古 (直行便) ---
-    { no: 'RRA851', from: '大阪(関空)', to: '石垣', dep: '11:00', arr: '13:30', fare: '19,800', seat: 'B' },
-    { no: 'RRA852', from: '石垣', to: '大阪(関空)', dep: '14:00', arr: '16:30', fare: '19,800', seat: 'A' },
-    { no: 'RRA861', from: '大阪(関空)', to: '宮古', dep: '10:30', arr: '13:00', fare: '18,800', seat: 'A' },
-    { no: 'RRA862', from: '宮古', to: '大阪(関空)', dep: '13:30', arr: '16:00', fare: '18,800', seat: 'B' },
-
-    // --- 9. 新千歳 ⇔ 石垣 / 宮古 (シミュレーション) ---
-    { no: 'RRA751', from: '新千歳', to: '石垣', dep: '10:30', arr: '15:10', fare: '34,000', seat: 'C' },
-    { no: 'RRA752', from: '石垣', to: '新千歳', dep: '16:00', arr: '20:40', fare: '34,000', seat: 'A' }
-];
-
-// 残席状況に応じた表示文字列とクラス名を返す
-function getSeatStatus(seatCode) {
-    switch(seatCode) {
-        case 'A': return { text: '<span class="seat-symbol seat-available">◎ 余裕あり</span>', class: '' };
-        case 'B': return { text: '<span class="seat-symbol seat-few">△ 残りわずか</span>', class: '' };
-        case 'C': return { text: '<span class="seat-symbol seat-full">✕ 満席に近い</span>', class: 'row-alt' }; // 満席近い行は背景色を変える例
-        default: return { text: '要問合せ', class: '' };
-    }
-}
-
-// ------------------------------------------
-// ▼▼▼ ページ読み込み時のメイン処理 ▼▼▼
-// ------------------------------------------
-window.onload = function() {
-    // --- A. URLパラメータの取得 ---
-    // ★★★ "from" を "dep" から "from" に修正（index.htmlのname属性に合わせる） ★★★
-    var from = getParameterByName('from'); 
-    var to = getParameterByName('to');
-    var month = getParameterByName('month');
-    var day = getParameterByName('day');
-
-    // --- B. 検索条件の表示更新 ---
-    var dateText = (month && day) ? (month + '月' + day + '日') : '日付未指定';
-    var searchInfo = document.getElementById('search-criteria-display');
-    if (searchInfo) {
-        searchInfo.innerHTML = '<font size="2"><b>【ご希望の検索条件】</b></font><br>' +
-                               '<span>' + (from || '出発地未定') + '</span> &rarr; <span>' + (to || '目的地未定') + '</span><br>' +
-                               '<span>搭乗日: ' + dateText + '</span>';
-    }
-
-    // --- C. フライトリストのフィルタリングと表示 ---
-    var resultsTbody = document.getElementById('flight-results-tbody');
-    if (!resultsTbody) return; // エラーチェック
-
-    // フィルタリング
-    var filteredFlights = FLIGHT_LIST_ALL.filter(function(flight) {
-        // ★★★ 検索ロジックを修正 ★★★
-        // from と to の両方が指定されている場合のみフィルタリングする
-        if (from && to) {
-            return flight.from === from && flight.to === to;
-        }
-        // 片方、または両方が指定されていない場合は、何も表示しない（検索を促す）
-        return false; 
-    });
-
-    // 結果のHTML生成
-    var resultsHtml = '';
-
-    if (filteredFlights.length > 0) {
-        filteredFlights.forEach(function(flight, index) {
-            var seat = getSeatStatus(flight.seat);
-            var rowClass = (index % 2 !== 0) ? 'row-alt' : ''; // 交互の行
-            if (seat.class) rowClass = seat.class; // 満席近いで上書き
-            
-            resultsHtml += '<tr class="' + rowClass + '">';
-            // ラジオボタンで便名を選択
-            resultsHtml += '<td><input type="radio" name="selected_flight" value="' + flight.no + '"></td>';
-            resultsHtml += '<td>' + flight.no + '</td>';
-            resultsHtml += '<td><b>' + flight.dep + '</b>発 (' + flight.from + ')</td>';
-            resultsHtml += '<td><b>' + flight.arr + '</b>着 (' + flight.to + ')</td>';
-            resultsHtml += '<td class="fare-price">￥' + flight.fare + '</td>';
-            resultsHtml += '<td>' + seat.text + '</td>';
-            resultsHtml += '</tr>';
-        });
-    } else {
-        // 検索結果が0件の場合
-        resultsHtml = '<tr><td colspan="6"><font color="red"><b>ご指定の条件に合うフライトは見つかりませんでした。</b></font><br>' +
-                      '恐れ入りますが、トップページに戻り、別の条件で再度検索をお願いいたします。</td></tr>';
-    }
-
-    // HTMLをDOMに挿入
-    resultsTbody.innerHTML = resultsHtml;
-
-    // --- D. フォームに日付情報を隠しフィールドで引き継ぐ ---
-    var flightForm = document.getElementById('flight-select-form');
-    if (flightForm) {
-        flightForm.innerHTML += '<input type="hidden" name="month" value="' + (month || '') + '">';
-        flightForm.innerHTML += '<input type="hidden" name="day" value="' + (day || '') + '">';
-        flightForm.innerHTML += '<input type="hidden" name="dep" value="' + (from || '') + '">'; // 路線情報も引き継ぐ
-        flightForm.innerHTML += '<input type="hidden" name="arr" value="' + (to || '') + '">'; // 路線情報も引き継ぐ
-    }
+<script>
+// 空港コードと名称のマッピング
+const airportNames = {
+    'HND': '東京(羽田)', 'KIX': '大阪(関空)', 'CTS': '札幌(新千歳)',
+    'OKA': '沖縄(那覇)', 'ISG': '石垣', 'MMY': '宮古', 'OGN': '与那国'
 };
 
-// ------------------------------------------
-// ▼▼▼ 絞り込み機能 (時刻フィルタリング) ▼▼▼
-// ------------------------------------------
-function filterFlights(targetHour) {
-    var table = document.getElementById('flight-results-table');
-    if (!table) return;
-    var rows = table.querySelectorAll('tbody tr'); // tbodyの中のtrだけを対象
+// 全便データ (静的に定義)
+const flightData = [
+    // 東京(HND) ⇔ 沖縄(OKA)
+    { dep: 'HND', arr: 'OKA', flight: 'RRA801', time_dep: '08:00', time_arr: '10:45', status: '◎', price_norm: '39,000', price_disc: '19,800' },
+    { dep: 'HND', arr: 'OKA', flight: 'RRA803', time_dep: '12:00', time_arr: '14:45', status: '△', price_norm: '42,000', price_disc: '22,800' },
+    { dep: 'HND', arr: 'OKA', flight: 'RRA805', time_dep: '17:00', time_arr: '19:45', status: '◎', price_norm: '48,000', price_disc: '25,800' },
+    { dep: 'OKA', arr: 'HND', flight: 'RRA802', time_dep: '10:00', time_arr: '12:40', status: '◎', price_norm: '39,000', price_disc: '19,800' },
+    { dep: 'OKA', arr: 'HND', flight: 'RRA804', time_dep: '15:00', time_arr: '17:40', status: '満席', price_norm: '42,000', price_disc: '22,800' },
+    { dep: 'OKA', arr: 'HND', flight: 'RRA806', time_dep: '19:30', time_arr: '22:10', status: '◎', price_norm: '48,000', price_disc: '25,800' },
+    
+    // 大阪(KIX) ⇔ 沖縄(OKA)
+    { dep: 'KIX', arr: 'OKA', flight: 'RRA701', time_dep: '11:00', time_arr: '13:00', status: '◎', price_norm: '35,000', price_disc: '16,800' },
+    { dep: 'KIX', arr: 'OKA', flight: 'RRA703', time_dep: '16:00', time_arr: '18:00', status: '△', price_norm: '38,000', price_disc: '18,800' },
+    { dep: 'OKA', arr: 'KIX', flight: 'RRA702', time_dep: '14:00', time_arr: '16:00', status: '◎', price_norm: '35,000', price_disc: '16,800' },
+    { dep: 'OKA', arr: 'KIX', flight: 'RRA704', time_dep: '19:00', time_arr: '21:00', status: '◎', price_norm: '38,000', price_disc: '18,800' },
+    
+    // 札幌(CTS) ⇔ 沖縄(OKA)
+    { dep: 'CTS', arr: 'OKA', flight: 'RRA901', time_dep: '12:30', time_arr: '16:05', status: '◎', price_norm: '45,000', price_disc: '29,800' },
+    { dep: 'OKA', arr: 'CTS', flight: 'RRA902', time_dep: '10:00', time_arr: '13:35', status: '◎', price_norm: '45,000', price_disc: '29,800' },
 
-    for (var i = 0; i < rows.length; i++) {
-        var row = rows[i];
-        if (row.cells.length < 3) continue; // エラー行は無視
-        
-        var timeCell = row.cells[2]; // 3番目のセル(出発時刻)
-        var timeText = timeCell.textContent || timeCell.innerText; 
-        var hourMatch = timeText.match(/(\d{2}):\d{2}/);
-        var hour = hourMatch ? parseInt(hourMatch[1]) : null;
+    // 那覇(OKA) ⇔ 宮古(MMY)
+    { dep: 'OKA', arr: 'MMY', flight: 'RRA101', time_dep: '09:00', time_arr: '09:50', status: '△', price_norm: '12,000', price_disc: '7,800' },
+    { dep: 'OKA', arr: 'MMY', flight: 'RRA105', time_dep: '17:30', time_arr: '18:20', status: '◎', price_norm: '12,000', price_disc: '7,800' },
+    { dep: 'MMY', arr: 'OKA', flight: 'RRA102', time_dep: '10:30', time_arr: '11:20', status: '◎', price_norm: '12,000', price_disc: '7,800' },
+    
+    // 那覇(OKA) ⇔ 石垣(ISG)
+    { dep: 'OKA', arr: 'ISG', flight: 'RRA201', time_dep: '10:15', time_arr: '11:10', status: '◎', price_norm: '15,000', price_disc: '8,800' },
+    { dep: 'OKA', arr: 'ISG', flight: 'RRA203', time_dep: '14:30', time_arr: '15:25', status: '△', price_norm: '15,000', price_disc: '8,800' },
+    { dep: 'ISG', arr: 'OKA', flight: 'RRA204', time_dep: '16:00', time_arr: '16:55', status: '◎', price_norm: '15,000', price_disc: '8,800' },
 
-        if (hour !== null) {
-            var display = (hour === parseInt(targetHour)) ? '' : 'none';
-            row.style.display = display;
-        }
+    // 石垣(ISG) ⇔ 与那国(OGN)
+    { dep: 'ISG', arr: 'OGN', flight: 'RRA301', time_dep: '14:00', time_arr: '14:35', status: '◎', price_norm: '11,000', price_disc: '6,800' },
+    { dep: 'OGN', arr: 'ISG', flight: 'RRA302', time_dep: '15:15', time_arr: '15:50', status: '◎', price_norm: '11,000', price_disc: '6,800' },
+];
+
+// URLパラメータを解析する関数
+function getQueryParams() {
+    const params = {};
+    const queryString = window.location.search.substring(1);
+    const regex = /([^&=]+)=([^&]*)/g;
+    let m;
+    while (m = regex.exec(queryString)) {
+        params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
     }
+    return params;
 }
 
-function resetFilter() {
-    var table = document.getElementById('flight-results-table');
-    if (!table) return;
-    var rows = table.querySelectorAll('tbody tr');
+// フライトを表示するメイン関数
+function displayFlights() {
+    const params = getQueryParams();
+    const depCode = params.dep; // そのまま dep
+    const arrCode = params.arr; // そのまま arr
+    // ...
+    const date = params.date || '12月25日'; // 日付はダミー
+
+    const resultsBody = document.getElementById('flight-results-body');
+    const searchInfo = document.getElementById('search-info');
+    let htmlContent = '';
     
-    for (var i = 0; i < rows.length; i++) {
-        rows[i].style.display = ''; 
+    // 検索条件の表示を更新
+    const depName = airportNames[depCode] || '出発地未指定';
+    const arrName = airportNames[arrCode] || '到着地未指定';
+    
+    searchInfo.innerHTML = `
+        <font size="3" color="#000080"><b>検索条件: ${date} (水) ${depName} → ${arrName}</b></font><br>
+        <font size="2">（該当する便が見つからなかった場合は、下の時刻表を確認してください。）</font>
+    `;
+
+    // データをフィルタリング
+    const filteredFlights = flightData.filter(flight => 
+        flight.dep === depCode && flight.arr === arrCode
+    );
+
+    if (filteredFlights.length === 0) {
+        htmlContent = `<tr><td colspan="9" align="center" style="padding: 20px;">
+                        <font color="red"><b>ご指定の区間 (${depName} → ${arrName}) は、本日は運航しておりません。</b></font><br>
+                        恐れ入りますが、別の区間または時刻表をご確認ください。
+                       </td></tr>`;
+    } else {
+        // 結果が一つ以上ある場合は、ヘッダーを挿入
+        const routeHeader = `<tr><td colspan="9" class="route-section-header">${depName} ⇔ ${arrName} 路線</td></tr>`;
+        htmlContent += routeHeader;
+
+        filteredFlights.forEach(flight => {
+            const statusClass = flight.status === '◎' ? 'status-available'
+                               : flight.status === '△' ? 'status-few'
+                               : 'status-full';
+            const buttonText = flight.status === '満席' ? '空席待ち' : '予約へ';
+            const buttonStyle = flight.status === '満席' ? 'background-color:#CCCCCC;' : '';
+
+            htmlContent += `
+                <tr>
+                    <td>${flight.flight}</td>
+                    <td>${airportNames[flight.dep]}</td>
+                    <td>${flight.time_dep}</td>
+                    <td>${airportNames[flight.arr]}</td>
+                    <td>${flight.time_arr}</td>
+                    <td class="${statusClass}">${flight.status}</td>
+                    <td class="price-box">${flight.price_norm}円</td>
+                    <td class="price-box">${flight.price_disc}円</td>
+                    <td><input type="button" value="${buttonText}" class="reserve-button" style="${buttonStyle}" onclick="alert('${flight.flight}便 予約画面へ進みます');"></td>
+                </tr>
+            `;
+        });
     }
+
+    resultsBody.innerHTML = htmlContent;
 }
 </script>
-
 </body>
 </html>

@@ -205,7 +205,7 @@ table.topics td {
             <font size="2">
                 <b>[ <a href="./index.html">ホーム</a> ]</b>
                 | <b>[ <a href="./flight-info.html">運航情報</a> ]</b>
-                | <b>[ <a href="#">時刻表</a> ]</b>
+                | <b>[ <a href="./rra_timetable.html">時刻表</a> ]</b>
                 | <b>[ <a href="./rra_fare_info.html">運賃案内</a> ]</b>
                 | <b>[ <a href="./rra_about_us.html">会社概要</a> ]</b>
                 | <b>[ <a href="#">English</a> ]</b>
@@ -302,58 +302,58 @@ table.topics td {
             <br>
             <hr size="1" color="#CCCCCC">
             
-            <div class="form-box">
-                <h4 style="margin-top:0; text-align:center;">▼ スピード空席照会 ▼</h4>
-                
-                <form action="rra_search_result.html" method="GET">
-                <table align="center" border="0" cellpadding="3">
-                    <tr>
-                        <td align="right"><font size="2">出発地:</font></td>
-                        <td>
-                            <select name="from" id="from">
-                                <option value="東京(羽田)">東京(羽田)</option>
-                                <option value="大阪(関空)">大阪(関空)</option>
-                                <option value="新千歳">新千歳</option>
-                                <option value="那覇">那覇</option>
-                                <option value="石垣">石垣</option>
-                                <option value="宮古">宮古</option>
-                            </select>
-                        </td>
-                        <td align="right"><font size="2">到着地:</font></td>
-                        <td>
-                            <select name="to" id="to">
-                                <option value="那覇">那覇</option>
-                                <option value="石垣">石垣</option>
-                                <option value="宮古">宮古</option>
-                                <option value="東京(羽田)">東京(羽田)</option>
-                                <option value="大阪(関空)">大阪(関空)</option>
-                                <option value="新千歳">新千歳</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right"><font size="2">搭乗日:</font></td>
-                        <td colspan="3">
-                            <select name="month">
-                                <option value="11">11月</Moption>
-                                <option value="12">12月</option>
-                            </select>
-                            <select name="day">
-                                <option value="18">18日</option>
-                                <option value="19">19日</option>
-                                <option value="20">20日</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="4" align="center">
-                            <br>
-                            <input type="submit" value=" 検索する " class="submit-button">
-                        </td>
-                    </tr>
-                </table>
-                </form>
-            </div>
+<div class="form-box">
+    <h4 style="margin-top:0; text-align:center;">▼ スピード空席照会 ▼</h4>
+    
+    <form action="rra_search_result.html" method="GET">
+    <table align="center" border="0" cellpadding="3">
+        <tr>
+            <td align="right"><font size="2">出発地:</font></td>
+            <td>
+                <select name="dep" id="dep"> 
+                    <option value="HND">東京(羽田)</option>
+                    <option value="KIX">大阪(関空)</option>
+                    <option value="CTS">新千歳</option>
+                    <option value="OKA">那覇</option>
+                    <option value="ISG">石垣</option>
+                    <option value="MMY">宮古</option>
+                </select>
+            </td>
+            <td align="right"><font size="2">到着地:</font></td>
+            <td>
+                <select name="arr" id="arr">
+                    <option value="OKA">那覇</option>
+                    <option value="ISG">石垣</option>
+                    <option value="MMY">宮古</option>
+                    <option value="HND">東京(羽田)</option>
+                    <option value="KIX">大阪(関空)</option>
+                    <option value="CTS">新千歳</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td align="right"><font size="2">搭乗日:</font></td>
+            <td colspan="3">
+                <select name="month">
+                    <option value="11">11月</Moption>
+                    <option value="12">12月</option>
+                </select>
+                <select name="day">
+                    <option value="18">18日</option>
+                    <option value="19">19日</option>
+                    <option value="20">20日</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" align="center">
+                <br>
+                <input type="submit" value=" 検索する " class="submit-button">
+            </td>
+        </tr>
+    </table>
+    </form>
+</div>
             <br>
             <div class="placeholder-img" style="width: 530px;">
                 [画像バナー: 輝く海とハイビスカス。]<br>
